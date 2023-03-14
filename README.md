@@ -5,7 +5,7 @@
 # Installation
 ```
 cd ~/ && rm -rf SuperDump
-git clone --depth=1 https://github.com/solohackerzorganization/Open-Source
+git clone --depth=1 https://github.com/solohackerzorg/Open-Source
 cd ~/Open-Source
 pip install requests
 pip install futures
