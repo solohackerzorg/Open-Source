@@ -5,19 +5,19 @@
 # Installation
 ```
 cd ~/ && rm -rf SuperDump
-git clone --depth=1 https://github.com/solohackerzorganization/SuperDump
-cd ~/SuperDump
+git clone --depth=1 https://github.com/solohackerzorganization/Open-Source
+cd ~/Open-Source
 pip install requests
 pip install futures
 pip install rich
-python superdump.py
+python sd.py
 ```
 
 
 # Run
 
 ```
-cd ~/SuperDump
-python superdump.py
+cd ~/Open-Source
+python sd.py
 ```
 Thanks for using my code and don't forget to fork and follow
