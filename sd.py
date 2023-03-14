@@ -45,30 +45,31 @@ def soloflashlogo(z):
         sys.stdout.write(e)
         sys.stdout.flush()
         time.sleep(0.01)
-
-uid = []
+id,id2,loop,ok,cp,mziid,oprek,method,lisensiku,taplikasi,tokenku,uid,lisensikuni= [],[],0,0,0,[],[],[],[],[],[],[],[]
+cokbrut=[]
+psmzs,love1=[],[]
 linex = ('\033[0;97m═══════════════════════════════════════════════')
 
-a = '\x1b[1;97m'
-b = '\x1b[1;91m'
-c = '\x1b[1;92m'
-d = '\x1b[1;93m'
-e = '\x1b[1;94m'
-f = '\x1b[1;95m' 
-g = '\x1b[1;96m'
-h = '\x1b[0m'    
-i = "\033[1;30m"
-j = '\033[41m\x1b[1;97m'
-k = '\33[m' # mix
-l = '\x1b[1;91m' #lal +
-m = '\033[93m' # pila +
-n = '\x1b[1;92m' # hara +
-o = '\033[32m' # hara2 -
-p = '\033[95m' # gulabai
-q = '\033[33m' # pila2 -
-r = '\33[1;96m' # surkh -
-s = '\x1b[0;34m' # halka nila +
-solocol = random.choice([A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R])
+P = '\x1b[1;97m'
+M = '\x1b[1;91m'
+H = '\x1b[1;92m'
+K = '\x1b[1;93m'
+B = '\x1b[1;94m'
+U = '\x1b[1;95m' 
+O = '\x1b[1;96m'
+N = '\x1b[0m'    
+Z = "\033[1;30m"
+sir = '\033[41m\x1b[1;97m'
+x = '\33[m' # mix
+m = '\x1b[1;91m' #lal +
+k = '\033[93m' # pila +
+h = '\x1b[1;92m' # hara +
+hh = '\033[32m' # hara2 -
+u = '\033[95m' # gulabai
+kk = '\033[33m' # pila2 -
+b = '\33[1;96m' # surkh -
+p = '\x1b[0;34m' # halka nila +
+sziloveyu = random.choice([Z,X,C,V,B,N,M,A,S,D,F,G,H,J,K,L])
 
 
 
@@ -81,7 +82,7 @@ def clear():
         os.system('cls')
 def sologo():
 	clear()
-	soloflashlogo(f'{solocol}   ▄████████    ▄█    █▄     ▄██████▄  \n  ███    ███   ███    ███   ███    ███ \n  ███    █▀    ███    ███   ███    ███\n  ███         ▄███▄▄▄▄███▄▄ ███    ███ [S]\n▀███████████ ▀▀███▀▀▀▀███▀  ███    ███ [O]\n         ███   ███    ███   ███    ███ [L]\n   ▄█    ███   ███    ███   ███    ███ [O]\n ▄████████▀    ███    █▀     ▀██████▀  ')
+	soloflashlogo(f'{sziloveyu}   ▄████████    ▄█    █▄     ▄██████▄  \n  ███    ███   ███    ███   ███    ███ \n  ███    █▀    ███    ███   ███    ███\n  ███         ▄███▄▄▄▄███▄▄ ███    ███ [S]\n▀███████████ ▀▀███▀▀▀▀███▀  ███    ███ [O]\n         ███   ███    ███   ███    ███ [L]\n   ▄█    ███   ███    ███   ███    ███ [O]\n ▄████████▀    ███    █▀     ▀██████▀  ')
 	soloflashlogo(f'{linex}\n Author    : SOLO HACKER\n Version   : 4.3\n Github    : solohackerzorganization \n{linex}\n\t\tMain Menu')
 def check_login():
 	try:
@@ -95,13 +96,11 @@ def check_login():
 		except :login()
 	except requests.exceptions.ConnectionError:
 		li = 'Connection Problem'
+		lo = mark(li, style='red')
+		sol().print(lo, style='purple')
 		exit()
 	except IOError:
 		login()
-'''
-This source code is provided free by solo hackerz organization and if you use our source code you are requested to please follow and give us credits
-'''
-	
 def login():
  try:
   clear()
@@ -123,7 +122,7 @@ def login():
   os.system("rm -f solotoken.txt")
   os.system("rm -f solocok.txt")
   print(f' Login Failed (May be Cookies are Expired)')
-  exit()
+  exit()	
 #------------------[ BAGIAN-MENU ]----------------#
 def menu(sy2,sy3):
 	try:
@@ -199,7 +198,7 @@ def superfile(filen):
 			print('>> Network Error ')
 			exit()
 	try:
-		with solothread(max_workers=30) as (solohacker):
+		with solothread(max_workers=20) as (solohacker):
 			juma = open(filen,"r").readlines()
 			for data in juma:
 				data = data.replace("\n","")
@@ -226,20 +225,20 @@ def multi_file(useriid,filen):
 		for appui in linkdump['friends']['data']:
 				try:
 					soloid = (appui['id']+'|'+appui['name'])
-					if soloid in id:pass
-					else:id.append(soloid);xaz.write(soloid+'\n')
+					if soloid not in id:id.append(soloid);xaz.write(soloid+'\n')
+					else:pass
 				except:pass
 		linkdump1 =ses.get(f'https://graph.facebook.com/{useriid}?fields=subscribers.limit(999999)&access_token={token}',cookies = {'cookies':cok}).json()
 		for appzi in linkdump1['subscribers']['data']:
 				try: 
 					xui = (appzi['id']+'|'+appzi['name'])
-					if xui in id:pass
-					else:id.append(xui);xaz.write(xui+'\n')
+					if xui not in id:id.append(xui);xaz.write(xui+'\n')
+					else:pass
 					xaz.close()
 				except:pass
 	except KeyError:pass
 	
-	sys.stdout.write("\r%s[%sExtracted Accounts ]%s •> %s"%(Q,solochoice([U,I,K,h,M,C]),Q, len(id))); sys.stdout.flush()
+	sys.stdout.write("\r%s[%sExtracted Accounts ]%s •> %s"%(Q,solochoice([A,B,C,D,E,F,G,H,I,J,K]),Q, len(id))); sys.stdout.flush()
 #============================
 def remove_double():
     clear();sologo()
@@ -289,6 +288,10 @@ def contact_author():
 	os.system('xdg-open https://wa.link/ozyc9p')
 if __name__=='__main__':
 	try:os.system('git pull')
+	except:pass
+	try:os.mkdir('OK')
+	except:pass
+	try:os.mkdir('CP')
 	except:pass
 	try:os.system('rm -rf ..solo.txt')
 	except:pass
