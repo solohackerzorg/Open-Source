@@ -4,7 +4,7 @@
 
 # Installation
 ```
-cd ~/ && rm -rf SuperDump
+cd ~/ && rm -rf Open-Source
 git clone --depth=1 https://github.com/solohackerzorg/Open-Source
 cd ~/Open-Source
 pip install requests
