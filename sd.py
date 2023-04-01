@@ -1,38 +1,42 @@
-﻿#coded_by_solo_hacker
+#coded_by_solo_hacker
+"""
+Don't Use Without
+Credits
+"""
 import itertools, threading, time, sys, os
 import requests
 import rich
 import json,os,sys,random,datetime,time,re
-from rich.console import Console as sol
-from concurrent.futures import ThreadPoolExecutor as solothread
+from concurrent.futures import ThreadPoolExecutor as speed
+from rich.markdown import Markdown as mark
 from rich import pretty
-from random import choice as solochoice
-A = '\x1b[0;97m' 
-B = '\x1b[0;91m' 
-C = '\x1b[0;92m' 
-D = '\x1b[0;93m' 
-E = '\x1b[0;94m'
-F = '\x1b[0;95m' 
-G = '\x1b[0;96m' 
-H = '\x1b[0m'   
+from random import choice as pilih
+P = '\x1b[0;97m'
+M = '\x1b[0;91m' 
+H = '\x1b[0;92m' 
+K = '\x1b[0;93m'
+B = '\x1b[0;94m'
+U = '\x1b[0;95m' 
+O = '\x1b[0;96m' 
+N = '\x1b[0m'   
 I='\x1b[0;32m'
-J='\x1b[0;36m'
-K='\x1b[0;31m'
-L='\x1b[0;35m'
-M='\x1b[0;33m'
-N='\033[0;37m'
-O='\x1b[00m'
-P='\x1b[0;90m'
-Q="\x1b[00m"
-R='\x1b[0;32m'
-S='\x1b[0;36m'
-T='\x1b[0;31m'
+C='\x1b[0;36m'
+M='\x1b[0;31m'
 U='\x1b[0;35m'
-V='\x1b[0;33m'
-W='\x1b[0;34m'
-X='\033[0;37m'
-Y='\x1b[00m'
-Z='\x1b[0;90m'
+K='\x1b[0;33m'
+P='\x1b[00m'
+H='\x1b[0;90m'
+Q="\x1b[00m"
+i='\x1b[0;32m'
+c='\x1b[0;36m'
+m='\x1b[0;31m'
+u='\x1b[0;35m'
+k='\x1b[0;33m'
+b='\x1b[0;34m'
+p='\x1b[00m'
+h='\x1b[0;90m'
+q="\x1b[00m"
+pretty.install()
 ses=requests.Session()
 def soloflash(z):
     for e in z + "\n":
@@ -45,9 +49,7 @@ def soloflashlogo(z):
         sys.stdout.write(e)
         sys.stdout.flush()
         time.sleep(0.01)
-id,id2,loop,ok,cp,mziid,oprek,method,lisensiku,taplikasi,tokenku,uid,lisensikuni= [],[],0,0,0,[],[],[],[],[],[],[],[]
-cokbrut=[]
-psmzs,love1=[],[]
+id,uid= [],[]
 linex = ('\033[0;97m═══════════════════════════════════════════════')
 
 P = '\x1b[1;97m'
@@ -69,7 +71,7 @@ u = '\033[95m' # gulabai
 kk = '\033[33m' # pila2 -
 b = '\33[1;96m' # surkh -
 p = '\x1b[0;34m' # halka nila +
-sziloveyu = random.choice([Z,X,C,V,B,N,M,A,S,D,F,G,H,J,K,L])
+sziloveyu = random.choice([U,I,K,h,hh,U,u,m,k,h,u,b])
 
 
 
@@ -101,6 +103,7 @@ def check_login():
 		exit()
 	except IOError:
 		login()
+
 def login():
  try:
   clear()
@@ -180,12 +183,36 @@ def filename():
 def superfile(filen):
 	try:token = open('solotoken.txt','r').read();cok = open('solocok.txt','r').read()
 	except IOError:exit()
-	kil = input(f'{linex}\nEnter Link of Public ID : ');namesep = kil.split('|'); kl = namesep[0];clear();sologo()
-	uid.append(kl);print(f'{linex}\nDumping Started \nPress Ctrl+Z to stop\n{linex}\nFile Will be Saved in {filen}\n{linex}')
+	kil = input(f'{linex}\nEnter Link of Public ID : ');clear();sologo()
+	uid.append(kil);print(f'{linex}\nDumping Started \nPress Ctrl+Z to stop\n{linex}\nFile Will be Saved in {filen}\n{linex}')
+	cookie_dict = {}
+	for cookie in cok.split(';'):name, value = cookie.strip().split('=', 1);cookie_dict[name] = value
+	ciik = json.dumps(cookie_dict)
+	headers = {
+    'authority': 'graph.facebook.com',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,ar;q=0.7',
+    'cache-control': 'max-age=0',
+    'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Linux"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'none',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
+	}
+	params = {
+    'access_token': token,
+    'limit': '5000',
+	}	
+
 	for userr in uid:
 		try:
-			linkdump =ses.get(f'https://graph.facebook.com/{userr}?fields=friends.fields(id,name).limit(5000)&access_token={token}',cookies = {'cookies':cok}).json()
-			for appui in linkdump['friends']['data']:
+			lilis = requests.get(f'https://graph.facebook.com/{kil}/friends',params=params,cookies=cookie_dict,headers=headers)
+			linkdump = json.loads(lilis.text)
+			for appui in linkdump['data']:
 				try:
 					soloid = (appui['id']+'|'+appui['name'])
 					if soloid in id:pass
@@ -198,7 +225,7 @@ def superfile(filen):
 			print('>> Network Error ')
 			exit()
 	try:
-		with solothread(max_workers=20) as (solohacker):
+		with speed(max_workers=20) as (solohacker):
 			juma = open(filen,"r").readlines()
 			for data in juma:
 				data = data.replace("\n","")
@@ -219,26 +246,40 @@ xz = []
 def multi_file(useriid,filen):
 	try:token = open('solotoken.txt','r').read();cok = open('solocok.txt','r').read()
 	except IOError:exit()
-	xaz=open(filen,'a+')
+	cookie_dict = {}
+	for cookie in cok.split(';'):name, value = cookie.strip().split('=', 1);cookie_dict[name] = value
+	ciik = json.dumps(cookie_dict)
+	headers = {
+    'authority': 'graph.facebook.com',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,ar;q=0.7',
+    'cache-control': 'max-age=0',
+    'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Linux"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'none',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
+	}
+	params = {
+    'access_token': token,
+    'limit': '5000',
+	}
 	try:
-		linkdump =ses.get(f'https://graph.facebook.com/{useriid}?fields=friends.fields(id,name).limit(5000)&access_token={token}',cookies = {'cookies':cok}).json()
-		for appui in linkdump['friends']['data']:
+		li = requests.get(f'https://graph.facebook.com/{useriid}/friends',params=params,cookies=cookie_dict,headers=headers)
+		linkdump =json.loads(li.text)
+		for appui in linkdump["data"]:
 				try:
-					soloid = (appui['id']+'|'+appui['name'])
-					if soloid not in id:id.append(soloid);xaz.write(soloid+'\n')
+					soloid = (appui["id"]+'|'+appui["name"])
+					if soloid not in id:id.append(soloid);xaz=open(filen,'a+');xaz.write(soloid+'\n');xaz.close()
 					else:pass
-				except:pass
-		linkdump1 =ses.get(f'https://graph.facebook.com/{useriid}?fields=subscribers.limit(999999)&access_token={token}',cookies = {'cookies':cok}).json()
-		for appzi in linkdump1['subscribers']['data']:
-				try: 
-					xui = (appzi['id']+'|'+appzi['name'])
-					if xui not in id:id.append(xui);xaz.write(xui+'\n')
-					else:pass
-					xaz.close()
 				except:pass
 	except KeyError:pass
 	
-	sys.stdout.write("\r%s[%sExtracted Accounts ]%s •> %s"%(Q,solochoice([A,B,C,D,E,F,G,H,I,J,K]),Q, len(id))); sys.stdout.flush()
+	sys.stdout.write("\r%s[%sExtracted Accounts ]%s •> %s"%(Q,pilih([U,I,K,h,M,C]),Q, len(id))); sys.stdout.flush()
 #============================
 def remove_double():
     clear();sologo()
@@ -300,4 +341,4 @@ if __name__=='__main__':
 	os.system('rm -rf ..ijs.txt')
 	check_login()
 
-#>>>>> ALLAH HAFEZ  <<<<<<<#
+#>>>>> <<<<<<#
